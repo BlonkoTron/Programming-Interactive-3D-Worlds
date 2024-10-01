@@ -13,7 +13,7 @@ public class MinionMovement : MonoBehaviour
         transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(targetObject.position.x, transform.position.y, targetObject.position.z), speed * Time.fixedDeltaTime);
 
         Vector3 direction = targetObject.position - transform.position;
-        Quaternion rotation = Quaternion.LookRotation(direction);
+        Quaternion rotation = Quaternion.LookRotation(new Vector3 (direction.x, transform.rotation.y, direction.z));
         transform.rotation = rotation;
 
     }

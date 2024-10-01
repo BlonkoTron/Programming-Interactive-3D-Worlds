@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MoveCamera : MonoBehaviour
 {
-    [SerializeField]
-    GameObject objCamera;
 
     [SerializeField]
     GameObject objPlayer;
@@ -16,8 +14,9 @@ public class MoveCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 currPos = objCamera.transform.position;
-        currPos.y = objPlayer.transform.position.y;
-        objCamera.transform.position = currPos;
+        Vector3 currPos = objPlayer.transform.position;
+        currPos.x = objPlayer.transform.position.x - 10;
+        currPos.y = objPlayer.transform.position.y + 10;
+        transform.position = currPos;
     }
 }
