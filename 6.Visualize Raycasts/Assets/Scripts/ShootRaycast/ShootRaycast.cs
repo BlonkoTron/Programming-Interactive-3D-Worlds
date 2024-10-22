@@ -8,6 +8,8 @@ public class ShootRaycast : MonoBehaviour
 
     public GameObject reticlePrefab;
 
+    [SerializeField] private GameObject bloodPrefab;
+
     public ParticleSystem muzzleFlash;
 
     GameObject reticleObj;
@@ -56,11 +58,12 @@ public class ShootRaycast : MonoBehaviour
 
                 if (hit.transform.tag == "target")
                 {
-                    
+                   
+                    Instantiate(bloodPrefab, hit.point, Quaternion.identity);
 
-                    makePartsScript.CreateBroken(hit.transform);
+                    //makePartsScript.CreateBroken(hit.transform);
 
-                    Destroy(hit.transform.gameObject);
+                    //Destroy(hit.transform.gameObject);
                 }
                 
 
